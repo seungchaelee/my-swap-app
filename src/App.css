@@ -1,38 +1,256 @@
-.App {
-  text-align: center;
+.swap-interface {
+  background: #FFFFFF;
+  border: 1px solid #E6E8EC;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(145, 158, 171, 0.16);
+  padding: 1rem;
+  max-width: 400px;
+  margin: auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.input-container {
+  align-items: center;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border: 1px solid #E6E8EC;
+  border-radius: 8px;
+  font-size: 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.amount-input {
+  flex: 1;
+  margin-right: 0.5rem;
+  padding: 0.75rem;
+  border: 1px solid #E6E8EC;
+  border-radius: 8px;
+  font-size: 1rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.currency-select {
+  padding: 0.75rem;
+  border: 1px solid #E6E8EC;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.currency-value {
+  font-size: 0.75rem;
+  color: #6c757d;
+  margin-top: 0.25rem;
+}
+
+.settings-button {
+  cursor: pointer;
+  position: absolute;
+  top: 13%;
+  right: 33%;
+  font-size: 24px;
+}
+
+
+/*
+.token-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.token-modal {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.token-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.token-search-input {
+  flex-grow: 1;
+  margin-right: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.token-modal-close {
+  cursor: pointer;
+}
+
+.recent-tokens {
+  margin-bottom: 10px;
+}
+
+.token-list {
+  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  overflow-y: auto;
+  max-height: 200px;
+}
+
+.token-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: none;
+  background: #f7f7f7;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.token-button:hover {
+  background: #e0e0e0;
+} */
+
+.token-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  z-index: 1000;
+}
+
+.token-modal {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  width: 90%;
+  max-width: 480px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.token-modal-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.token-search-input {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  margin-right: 8px;
+}
+
+.token-modal-close {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 1.5rem;
+}
+
+.recent-tokens {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.token-button {
+  background: #f2f2f2;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.token-button img {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.token-list {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  max-height: 300px;
+
+}
+
+.token-list button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.token-list button:hover {
+  background-color: #f7f7f7;
+}
+
+.token-list img {
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+}
+
+.swap-button {
+  text-align: center;
+  width: 100%;
+  background: #4caf50;
+  color: #FFFFFF;
+  border: none;
+  padding: 1rem;
+  border-radius: 16px;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.swap-button:hover {
+  background-color: #405ED9;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.swap-button:disabled {
+  background: #ccc;
 }
+
+/* Typography */
+.token-modal h2,
+.token-modal button,
+.token-modal input {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Add other styling as needed */
