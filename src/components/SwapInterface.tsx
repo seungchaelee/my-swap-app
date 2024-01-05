@@ -215,10 +215,12 @@ const SwapInterface: React.FC = () => {
           <div className="currency-value">${toValueInUSD} USD</div>
         )}
       </div>
-      <div className="Amount-value">
-        1{toCurrency} = {total}
-        {fromCurrency}
-      </div>
+      {toValueInUSD && (
+        <div className="Amount-value">
+          1{toCurrency} = {total}
+          {fromCurrency}
+        </div>
+      )}
     </div>
   );
 };
